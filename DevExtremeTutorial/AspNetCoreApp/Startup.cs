@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreApp.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,6 +17,10 @@ namespace AspNetCoreApp
     {
         public Startup(IConfiguration configuration)
         {
+            using (var client = new ApplicationDBContext())
+            {
+                client.Database.EnsureCreated();
+            }
             Configuration = configuration;
         }
 
@@ -31,7 +36,7 @@ namespace AspNetCoreApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddEntityFrameworkSqlite().AddDbContext<ApplicationDBContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

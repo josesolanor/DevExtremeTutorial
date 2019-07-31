@@ -17,10 +17,6 @@ namespace AspNetCoreApp
     {
         public Startup(IConfiguration configuration)
         {
-            using (var client = new ApplicationDBContext())
-            {
-                client.Database.EnsureCreated();
-            }
             Configuration = configuration;
         }
 

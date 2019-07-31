@@ -1,8 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AspNetCoreApp.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspNetCoreApp.Context
 {
@@ -12,6 +9,7 @@ namespace AspNetCoreApp.Context
         {
             optionsBuilder.UseSqlite("Filename=MyDatabase.db");
         }
+
+        public DbSet<Person> Persons { get; set; }
     }
 }
- 

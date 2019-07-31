@@ -1,2 +1,2 @@
 # DevExtremeTutorial
-Proyectos con ejemplos de DevExtreme y asp.Net MVC y Core
+Proyectos con ejemplos de DevExtreme en asp.Net MVC y Core
